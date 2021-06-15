@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5625rem;
+  box-sizing: border-box;
+}
+.container p {
+  margin-top: 40px;
+}
+
+p {
+  text-align: center;
+}
+
+.with-pseudo {
+  position: relative;
+  z-index: 1;
+}
+.with-pseudo::before {
+  content: "";
+  /* it must have some kind of display  or postion otherwise it will not be visible on the screen*/
+  /* display: block; */
+  position: absolute;
+  background: linear-gradient(to right, cyan, yellow);
+  width: 200px;
+  height: 50px;
+  z-index: -1;
+}
+
+.with-pseudo::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  background: linear-gradient(to left, yellow, cyan);
+}
+
+.with-content {
+  position: relative;
+  z-index: 1;
+  width: 900px;
+}
+.with-content::before {
+  content: "This is the content";
+  background: magenta;
+  position: absolute;
+  font-size: 12px;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.quote::before,
+.quote::after {
+  font-size: 3rem;
+  color: blue;
+  /* background: linear-gradient(to right, cyan, yellow); */
+}
+.quote::before {
+  content: open-quote;
+}
+.quote::after {
+  content: close-quote;
+}
+a[data-tool-tip] {
+  position: relative;
+}
+a[data-tool-test]::before {
+  content: attr(data-tool-test);
+  font-size: 17px;
+  background: grey;
+  padding: 1rem 1rem;
+  position: absolute;
+  bottom: 60px;
+  left: 10;
+  border-radius: 10px;
+  color: antiquewhite;
+}
